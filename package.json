@@ -8,6 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "jsonwebtoken": "^8.4.0",
+    "koa": "^2.6.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-favicon": "^2.0.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.0",
+    "koa-static": "^5.0.0",
     "vue": "^2.5.17"
   },
   "devDependencies": {
