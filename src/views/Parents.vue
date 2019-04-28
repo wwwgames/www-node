@@ -61,11 +61,22 @@
 <style>
     .text-left {
         text-align: left;
+    }
 
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
     }
 
     .text-indent {
         text-indent: 25px;
+    }
+
+    .text-indent-0 {
+        text-indent: 0px;
     }
 
     .font-size-12 {
