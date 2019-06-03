@@ -1,12 +1,21 @@
 <template>
-    <div >
-        <el-carousel :interval="4000" arrow="always" height="700px">
-            <el-carousel-item v-for="item in imgs" :key="item">
-                <div style="height: 100%; width: 100%"><img class="img-auto" :src="item"></div>
-
-            </el-carousel-item>
-        </el-carousel>
-    </div>
+    <el-container>
+        <el-aside width="200px">
+            <el-menu default-active="1"
+                     background-color="#545c64"
+                     text-color="#fff" 
+                     active-text-color="#ffd04b">
+                <el-menu-item index="1">狭地对决</el-menu-item>
+            </el-menu>
+        </el-aside>
+        <el-main>
+            <el-carousel :interval="4000" arrow="always" height="700px">
+                <el-carousel-item v-for="item in imgs" :key="item">
+                    <div style="height: 100%; width: 100%"><img class="img-auto" :src="item"></div>
+                </el-carousel-item>
+            </el-carousel>
+        </el-main>
+    </el-container>
 </template>
 
 <script>
@@ -18,7 +27,7 @@
                     require('../assets/1.png'),
                     require('../assets/2.jpg'),
                     require('../assets/3.jpeg')
-                    ]
+                ]
             }
         }
     }
@@ -28,8 +37,8 @@
 <style>
 
     .img-auto {
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
         /*object-fit: scale-down;*/
         /*background-size: cover;*/
         /*max-width: 100%;*/

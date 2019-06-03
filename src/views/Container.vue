@@ -2,8 +2,9 @@
     <el-container>
         <el-header>
             <el-row>
-                <el-col :span="6"><div style="background-color: #545c64; height: 60px; line-height: 60px; color: white; font-size: 24px" >伦之游戏</div></el-col>
-                <el-col :span="18"><el-menu
+                <el-col :span="6"><div style="background-color: #545c64; height: 60px; line-height: 60px; color: white; font-size: 24px" >伦之科技</div></el-col>
+                <el-col :span="18">
+                    <el-menu
                         :default-active="activeIndex"
                         class="el-menu-demo"
                         mode="horizontal"
@@ -11,11 +12,10 @@
                         background-color="#545c64"
                         text-color="#fff"
                         active-text-color="#ffd04b">
-                    <el-menu-item index="1"><router-link tag='a' style="text-decoration: none" :to="'/'" >首页</router-link></el-menu-item>
-                    <el-menu-item index="2" disabled>游戏</el-menu-item>
-                    <el-menu-item index="3" disabled>我们</el-menu-item>
-                    <el-menu-item index="4" disabled>招聘</el-menu-item>
-                </el-menu>
+                        <el-menu-item index="1"><router-link tag='a' style="text-decoration: none" :to="'/'" >首页</router-link></el-menu-item>
+                        <el-menu-item index="2"><router-link tag='a' style="text-decoration: none" :to="'/us'" >我们</router-link></el-menu-item>
+                        <el-menu-item index="3"><router-link tag='a' style="text-decoration: none" :to="'/employ'" >招聘</router-link></el-menu-item>
+                    </el-menu>
                 </el-col>
             </el-row>
         </el-header>

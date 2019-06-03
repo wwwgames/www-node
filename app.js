@@ -16,11 +16,10 @@ const serve = require('koa-static');
 const logger = require('koa-logger');
 const bodyParser = require('koa-bodyparser');
 const session = require('koa-session');
-const jwt = require('jsonwebtoken');
 const Router = require('koa-router');
 
 const sslPath = process.env.SSL_PATH || './app/ssl';
-console.log(`sslPath: ${sslPath}`);
+// console.log(`sslPath: ${sslPath}`);
 const ssl = {
     key: fs.readFileSync(`${sslPath}/privkey.pem`, 'utf8'),
     cert: fs.readFileSync(`${sslPath}/fullchain.pem`, 'utf8')
@@ -35,15 +34,6 @@ app.keys = ['ljl19920707'];
 app.use(session(app));
 
 const router = new Router();
-// router.post('/auth/login', async (ctx, next) => {
-//     if (adminConf.username === ctx.request.body.username && adminConf.password === ctx.request.body.password) {
-//         const token = jwt.sign({ uid: adminConf.uid }, tokenConf.secret, { expiresIn: tokenConf.expiresIn });
-//         ctx.body = { code: CODE.OK, uid: adminConf.uid, token, gate: adminConf.gate };
-//     } else {
-//         ctx.body = { code: CODE.FAIL };
-//     }
-//     ctx.status = 200;
-// });
 app.use(router.routes());
 
 // configure 404 page
