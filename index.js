@@ -16,14 +16,13 @@ const logger = require('koa-logger');
 const bodyParser = require('koa-bodyparser');
 const session = require('koa-session');
 const Router = require('@koa/router');
-
+const sslJson = require('./configs/ssl.json');
 
 async function main() {
-    const sslPath = process.env.SSL_PATH || path.join(__dirname, 'app', 'ssl');
-    const ssl = {
-        key: fs.readFileSync(path.join(sslPath, 'privkey.pem'), 'utf8'),
-        cert: fs.readFileSync(path.join(sslPath, 'fullchain.pem'), 'utf8')
-    };
+    const sslConf = {
+        key: fs.readFileSync(process.env.WWW_SSL_KEY_PATH || path.join(__dirname, sslJson.key), 'utf8'),
+        cert: fs.readFileSync(process.env.WWW_SSL_CERT_PATH || path.join(__dirname, sslJson.cert), 'utf8')
+    }
 
     const app = new Koa();
     app.use(logger());
@@ -82,7 +81,7 @@ async function main() {
         // eslint-disable-next-line no-console
         console.log(`[WWW] Http listening on port 80.`);
     });
-    const httpsServer = https.createServer(ssl, app.callback());
+    const httpsServer = https.createServer(sslConf, app.callback());
     httpsServer.listen(443, () => {
         // eslint-disable-next-line no-console
         console.log(`[WWW] Https listening on port 443.`);
